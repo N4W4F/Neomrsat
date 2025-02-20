@@ -77,8 +77,7 @@ public class ConfigurationSecurity {
                         "/api/v1/neomrsat/booking/complete/"
                         )
                 .hasAuthority("ADMIN")
-
-//                .anyRequest().authenticated()
+                .anyRequest().authenticated()
                 .and()
                 .logout().logoutUrl("/api/v1/logout")
                 .deleteCookies("JSESSIONID")

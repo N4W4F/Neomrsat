@@ -26,15 +26,17 @@ public class CustomerDTOin {
     private String phoneNumber;
 
     @NotEmpty(message = "Password cannot be empty.")
-//    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\\\S+$).[8, 20]$",
-//            message = """
-//                    Password must follow the next rules:
-//                    It contains at least 8 characters and at most 20 characters.
-//                    It contains at least one digit.
-//                    It contains at least one upper case alphabet.
-//                    It contains at least one lower case alphabet.
-//                    It contains at least one special character which includes !@#$%&*()-+=^.
-//                    It doesn’t contain any white space.""")
+    @Pattern(
+            regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&*()\\-+=^])(?=\\S+$).{8,20}$",
+            message = """
+            Password must follow these rules: 
+            - It must contain at least 8 and at most 20 characters.
+            - It must contain at least one digit.
+            - It must contain at least one uppercase letter.
+            - It must contain at least one lowercase letter.
+            - It must contain at least one special character (!@#$%&*()-+=^).
+            - It must not contain any whitespace."""
+    )
     private String password;
 
     @NotEmpty(message = "Address cannot be empty")

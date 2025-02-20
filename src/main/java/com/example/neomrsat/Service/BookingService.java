@@ -175,28 +175,32 @@ public class BookingService {
         String subject = "Booking Approved: Your booking has been approved";
 
         // HTML body containing both English and Arabic content
-        String body = "<html><body dir='rtl' style='font-family: Arial, sans-serif;'>"
-                // English content
+        String body = "<html><body style='font-family: Arial, sans-serif;'>"
+                // English content with LTR direction
+                + "<div dir='ltr' style='text-align: left;'>"
                 + "<p>Dear " + customer.getUser().getFullName() + ",</p><br>"
-                + "<p>We are pleased to inform you that your booking has been approved.</p><br>"
-                + "<p>Here are the details of your booking:</p><br>"
-                + "<p><strong>Booking Description:</strong> " + booking.getDescription() + "</p><br>"
-                + "<p><strong>Booking Status:</strong> " + booking.getStatus() + "</p><br>"
+                + "<p>We are pleased to inform you that your booking has been approved.</p>"
+                + "<p>Here are the details of your booking:</p>"
+                + "<p><strong>Booking Description:</strong> " + booking.getDescription() + "</p>"
+                + "<p><strong>Booking Status:</strong> " + booking.getStatus() + "</p>"
                 + "<p><strong>Zone Name:</strong> " + booking.getZone().getZoneName() + "</p><br>"
                 + "<p>We are excited to proceed with your booking. If you need any further assistance or have any questions, please feel free to contact us.</p><br>"
                 + "<p>Best regards,</p>"
                 + "<p>Neomrsat Team</p><br>"
+                + "</div>" // End of English section
 
-                // Arabic content
+                // Arabic content with RTL direction
+                + "<div dir='rtl' style='text-align: right;'>"
                 + "<p>عزيزي " + customer.getUser().getFullName() + "،</p><br>"
-                + "<p>يسعدنا أن نعلمك أنه تم الموافقة على حجزك.</p><br>"
-                + "<p>فيما يلي تفاصيل حجزك:</p><br>"
-                + "<p><strong>وصف الحجز:</strong> " + booking.getDescription() + "</p><br>"
-                + "<p><strong>حالة الحجز:</strong> " + booking.getStatus() + "</p><br>"
+                + "<p>يسعدنا أن نعلمك أنه تم الموافقة على حجزك.</p>"
+                + "<p>فيما يلي تفاصيل حجزك:</p>"
+                + "<p><strong>وصف الحجز:</strong> " + booking.getDescription() + "</p>"
+                + "<p><strong>حالة الحجز:</strong> " + booking.getStatus() + "</p>"
                 + "<p><strong>اسم المنطقة:</strong> " + booking.getZone().getZoneName() + "</p><br>"
                 + "<p>نحن متحمسون للمضي قدمًا في حجزك. إذا كنت بحاجة إلى مزيد من المساعدة أو لديك أي أسئلة، لا تتردد في التواصل معنا.</p><br>"
                 + "<p>مع أطيب التحيات،</p>"
                 + "<p>فريق Neomrsat</p>"
+                + "</div>" // End of Arabic section
                 + "</body></html>";
 
         emailService.sendEmail(userEmail, subject, body);
@@ -207,24 +211,26 @@ public class BookingService {
         String subject = "Booking Rejected: Your booking has been rejected";
 
         // HTML body containing both English and Arabic content
-        String body = "<html><body dir='rtl' style='font-family: Arial, sans-serif;'>"
-                // English content
+        String body = "<html><body style='font-family: Arial, sans-serif;'>"
+                // English content with LTR direction
+                + "<div dir='ltr' style='text-align: left;'>"
                 + "<p>Dear " + customer.getUser().getFullName() + ",</p><br>"
-                + "<p>We regret to inform you that your booking has been rejected.</p><br>"
-                + "<p>Here are the details of your booking:</p><br>"
-                + "<p><strong>Booking Description:</strong> " + booking.getDescription() + "</p><br>"
-                + "<p><strong>Booking Status:</strong> " + booking.getStatus() + "</p><br>"
+                + "<p>We regret to inform you that your booking has been rejected.</p>"
+                + "<p>Here are the details of your booking:</p>"
+                + "<p><strong>Booking Description:</strong> " + booking.getDescription() + "</p>"
+                + "<p><strong>Booking Status:</strong> " + booking.getStatus() + "</p>"
                 + "<p><strong>Zone Name:</strong> " + booking.getZone().getZoneName() + "</p><br>"
                 + "<p>We are sorry for any inconvenience this may have caused. If you need further assistance or have any questions, please feel free to contact us.</p><br>"
                 + "<p>Best regards,</p>"
                 + "<p>Neomrsat Team</p><br>"
 
-                // Arabic content
+                // Arabic content with RTL direction
+                + "<div dir='rtl' style='text-align: right;'>"
                 + "<p>عزيزي " + customer.getUser().getFullName() + "،</p><br>"
-                + "<p>نأسف لإبلاغك أنه تم رفض حجزك.</p><br>"
-                + "<p>فيما يلي تفاصيل حجزك:</p><br>"
-                + "<p><strong>وصف الحجز:</strong> " + booking.getDescription() + "</p><br>"
-                + "<p><strong>حالة الحجز:</strong> " + booking.getStatus() + "</p><br>"
+                + "<p>نأسف لإبلاغك أنه تم رفض حجزك.</p>"
+                + "<p>فيما يلي تفاصيل حجزك:</p>"
+                + "<p><strong>وصف الحجز:</strong> " + booking.getDescription() + "</p>"
+                + "<p><strong>حالة الحجز:</strong> " + booking.getStatus() + "</p>"
                 + "<p><strong>اسم المنطقة:</strong> " + booking.getZone().getZoneName() + "</p><br>"
                 + "<p>نعتذر عن أي إزعاج قد تسببت فيه هذه الحالة. إذا كنت بحاجة إلى مزيد من المساعدة أو لديك أي أسئلة، لا تتردد في التواصل معنا.</p><br>"
                 + "<p>مع أطيب التحيات،</p>"
@@ -239,24 +245,26 @@ public class BookingService {
         String subject = "Booking Completed: Your booking has been successfully completed";
 
         // HTML body containing both English and Arabic content
-        String body = "<html><body dir='rtl' style='font-family: Arial, sans-serif;'>"
-                // English content
+        String body = "<html><body style='font-family: Arial, sans-serif;'>"
+                // English content with LTR direction
+                + "<div dir='ltr' style='text-align: left;'>"
                 + "<p>Dear " + customer.getUser().getFullName() + ",</p><br>"
-                + "<p>We are pleased to inform you that your booking has been successfully completed.</p><br>"
-                + "<p>Here are the details of your booking:</p><br>"
-                + "<p><strong>Booking Description:</strong> " + booking.getDescription() + "</p><br>"
-                + "<p><strong>Booking Status:</strong> " + booking.getStatus() + "</p><br>"
+                + "<p>We are pleased to inform you that your booking has been successfully completed.</p>"
+                + "<p>Here are the details of your booking:</p>"
+                + "<p><strong>Booking Description:</strong> " + booking.getDescription() + "</p>"
+                + "<p><strong>Booking Status:</strong> " + booking.getStatus() + "</p>"
                 + "<p><strong>Zone Name:</strong> " + booking.getZone().getZoneName() + "</p><br>"
                 + "<p>We hope you had a great experience with us. If you need further assistance or have any questions, please feel free to contact us.</p><br>"
                 + "<p>Best regards,</p>"
                 + "<p>Neomrsat Team</p><br>"
 
-                // Arabic content
+                // Arabic content with RTL direction
+                + "<div dir='rtl' style='text-align: right;'>"
                 + "<p>عزيزي " + customer.getUser().getFullName() + "،</p><br>"
-                + "<p>يسعدنا أن نعلمك أنه تم إتمام حجزك بنجاح.</p><br>"
-                + "<p>فيما يلي تفاصيل حجزك:</p><br>"
-                + "<p><strong>وصف الحجز:</strong> " + booking.getDescription() + "</p><br>"
-                + "<p><strong>حالة الحجز:</strong> " + booking.getStatus() + "</p><br>"
+                + "<p>يسعدنا أن نعلمك أنه تم إتمام حجزك بنجاح.</p>"
+                + "<p>فيما يلي تفاصيل حجزك:</p>"
+                + "<p><strong>وصف الحجز:</strong> " + booking.getDescription() + "</p>"
+                + "<p><strong>حالة الحجز:</strong> " + booking.getStatus() + "</p>"
                 + "<p><strong>اسم المنطقة:</strong> " + booking.getZone().getZoneName() + "</p><br>"
                 + "<p>نأمل أن تكون تجربتك معنا رائعة. إذا كنت بحاجة إلى مزيد من المساعدة أو لديك أي أسئلة، لا تتردد في التواصل معنا.</p><br>"
                 + "<p>مع أطيب التحيات،</p>"
