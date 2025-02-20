@@ -68,21 +68,21 @@ public class BookingController {
         return ResponseEntity.status(200).body(new ApiResponse("Booking has been cancelled successfully"));
     }
     @PutMapping("/approve/{bookingId}")
-    public ResponseEntity approveBooking(@AuthenticationPrincipal MyUser myUser,
+    public ResponseEntity<?> approveBooking(@AuthenticationPrincipal MyUser myUser,
                                          @PathVariable Integer bookingId) throws MessagingException {
         bookingService.approveBooking(myUser.getId(), bookingId);
         return ResponseEntity.status(200).body(new ApiResponse("Booking has been approved successfully"));
     }
 
     @PutMapping("/reject/{bookingId}")
-    public ResponseEntity rejectBooking(@AuthenticationPrincipal MyUser myUser,
+    public ResponseEntity<?> rejectBooking(@AuthenticationPrincipal MyUser myUser,
                                         @PathVariable Integer bookingId) throws MessagingException {
         bookingService.rejectBooking(myUser.getId(), bookingId);
         return ResponseEntity.status(200).body(new ApiResponse("Booking has been rejected successfully"));
     }
 
     @PutMapping("/complete/{bookingId}")
-    public ResponseEntity completeBooking(@AuthenticationPrincipal MyUser myUser,
+    public ResponseEntity<?> completeBooking(@AuthenticationPrincipal MyUser myUser,
                                           @PathVariable Integer bookingId) throws MessagingException {
         bookingService.completeBooking(myUser.getId(), bookingId);
         return ResponseEntity.status(200).body(new ApiResponse("Booking has been completed successfully"));
